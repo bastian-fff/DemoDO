@@ -1,8 +1,17 @@
 package com.sophos.demodo;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.Scanner;
 
 public class DemoDO {
+
+	/* Log de eventos */
+	static {
+		System.setProperty("log4j2.configurationFile", "com/sophos/demodo/log4j2.xml");
+	}
+	private static final Logger LOGGER = LogManager.getLogger();
 
 	/**
 	 * Método principal
@@ -10,26 +19,26 @@ public class DemoDO {
 	 */
 	public static void main(String[] args) {
 		// Mensaje de bienvenida
-		System.out.println("Bienvenido al modulo de aritmetica basica");
-		System.out.println("=========================================");
-		System.out.println();
+		LOGGER.info("Bienvenido al modulo de aritmetica basica");
+		LOGGER.info("=========================================");
+		LOGGER.info("");
 
 		// Recibe el primer argumento
-		System.out.println("Ingrese el primer argumento: ");
+		LOGGER.info("Ingrese el primer argumento: ");
 		final int arg1 = leerEnteroDeConsola();
 
 		// Recibe el segundo argumento
-		System.out.println("Ingrese el segundo argumento: ");
+		LOGGER.info("Ingrese el segundo argumento: ");
 		final int arg2 = leerEnteroDeConsola();
 
 		// Presenta los resultados
-		System.out.println();
-		System.out.println("Resultados");
-		System.out.println("----------------------------------------------------------");
-		System.out.println("Suma de los argumentos:            (" + arg1 + " + " + arg2 + ") = " + sumar(arg1, arg2));
-		System.out.println("Resta de los argumentos:           (" + arg1 + " - " + arg2 + ") = " + restar(arg1, arg2));
-		System.out.println("Producto de los argumentos:        (" + arg1 + " x " + arg2 + ") = " + multiplicar(arg1, arg2));
-		System.out.println("Cociente entero de los argumentos: (" + arg1 + " / " + arg2 + ") = " + dividir(arg1, arg2));
+		LOGGER.info("");
+		LOGGER.info("Resultados");
+		LOGGER.info("----------------------------------------------------------");
+		LOGGER.info("Suma de los argumentos:            (" + arg1 + " + " + arg2 + ") = " + sumar(arg1, arg2));
+		LOGGER.info("Resta de los argumentos:           (" + arg1 + " - " + arg2 + ") = " + restar(arg1, arg2));
+		LOGGER.info("Producto de los argumentos:        (" + arg1 + " x " + arg2 + ") = " + multiplicar(arg1, arg2));
+		LOGGER.info("Cociente entero de los argumentos: (" + arg1 + " / " + arg2 + ") = " + dividir(arg1, arg2));
 
 		// Sale
 		System.exit(0);
@@ -50,7 +59,7 @@ public class DemoDO {
 		try {
 			return Integer.parseInt(tmp);
 		} catch (NumberFormatException nfe) {
-			System.err.println("Se esperaba un numero entero y se recibio '" + tmp + "'");
+			LOGGER.fatal("Se esperaba un numero entero y se recibio '" + tmp + "'");
 			System.exit(0);
 			return 0;
 		}
