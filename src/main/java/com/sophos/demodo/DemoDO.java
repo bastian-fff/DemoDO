@@ -19,7 +19,7 @@ public class DemoDO {
 	 */
 	public static void main(String[] args) {
 		// Mensaje de bienvenida
-		LOGGER.info("Bienvenido al módulo de aritmética básica");
+		LOGGER.info("Bienvenido al modulo de aritmetica basica");
 		LOGGER.info("=========================================");
 		LOGGER.info("");
 
@@ -33,7 +33,7 @@ public class DemoDO {
 
 		// Presenta los resultados
 		LOGGER.info("");
-		LOGGER.info("Resultados: ");
+		LOGGER.info("Resultados");
 		LOGGER.info("----------------------------------------------------------");
 		LOGGER.info("Suma de los argumentos:            (" + arg1 + " + " + arg2 + ") = " + sumar(arg1, arg2));
 		LOGGER.info("Resta de los argumentos:           (" + arg1 + " - " + arg2 + ") = " + restar(arg1, arg2));
