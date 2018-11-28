@@ -48,7 +48,7 @@ public class DemoDO {
 	 * Procedimiento que lee un número entero de la consola y lo retorna
 	 * @return el número entero ingresado por el usuario
 	 */
-	public static int leerEnteroDeConsola() {
+	private static int leerEnteroDeConsola() {
 		// Configura el scanner de la línea de comandos
 		final Scanner scanner = new Scanner(System.in);
 
@@ -72,7 +72,8 @@ public class DemoDO {
 	 * @return la suma de los argumentos
 	 */
 	public static int sumar(int arg1, int arg2) {
-		return arg1 + arg2;
+		final int resultado = arg2 + arg1;
+		return resultado;
 	}
 
 	/**
@@ -92,7 +93,11 @@ public class DemoDO {
 	 * @return el producto de los argumentos
 	 */
 	public static int multiplicar(int arg1, int arg2) {
-		return arg1 * arg2;
+		int producto = 0;
+		for(int i = 0 ; i < arg2 ; i++) {
+			producto += arg1;
+		}
+		return producto;
 	}
 
 	/**
@@ -105,7 +110,19 @@ public class DemoDO {
 		if(divisor == 0) {
 			throw new ArithmeticException("División por cero");
 		}
-		return dividendo / divisor;
+
+
+		int cociente = 0;
+
+		int signoDividendo = (int)Math.signum(dividendo);
+		int signoDivisor = (int)Math.signum(divisor);
+
+		int residuo = Math.abs(dividendo);
+		int div = Math.abs(divisor);
+		while ((residuo -= div) >= 0) {
+			cociente++;
+		}
+		return cociente * (signoDividendo * signoDivisor);
 	}
 
 }

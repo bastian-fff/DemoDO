@@ -96,6 +96,12 @@ public class TestDemoDO {
 
 		Assert.assertEquals(
 			"Resultado errado",
+			-2,
+			DemoDO.dividir(10, -5)
+		);
+
+		Assert.assertEquals(
+			"Resultado errado",
 			0,
 			DemoDO.dividir(0, 100)
 		);
