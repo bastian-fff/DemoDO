@@ -19,6 +19,7 @@ public class DemoDO {
 	 */
 	public static void main(String[] args) {
 		// Mensaje de bienvenida
+		LOGGER.info("");
 		LOGGER.info("Bienvenido al modulo de aritmetica basica");
 		LOGGER.info("=========================================");
 		LOGGER.info("");
@@ -39,6 +40,7 @@ public class DemoDO {
 		LOGGER.info("Resta de los argumentos:           (" + arg1 + " - " + arg2 + ") = " + restar(arg1, arg2));
 		LOGGER.info("Producto de los argumentos:        (" + arg1 + " x " + arg2 + ") = " + multiplicar(arg1, arg2));
 		LOGGER.info("Cociente entero de los argumentos: (" + arg1 + " / " + arg2 + ") = " + dividir(arg1, arg2));
+		LOGGER.info("");
 
 		// Sale
 		System.exit(0);
@@ -114,8 +116,8 @@ public class DemoDO {
 
 		int cociente = 0;
 
-		int signoDividendo = (int)Math.signum(dividendo);
-		int signoDivisor = (int)Math.signum(divisor);
+		int signoDividendo = Integer.signum(dividendo);
+		int signoDivisor = Integer.signum(divisor);
 
 		int residuo = Math.abs(dividendo);
 		int div = Math.abs(divisor);
