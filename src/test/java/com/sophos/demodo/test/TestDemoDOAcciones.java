@@ -78,6 +78,12 @@ public class TestDemoDOAcciones {
 
 		Assert.assertEquals(
 			"Resultado errado",
+			10,
+			DemoDO.multiplicar(10, 1)
+		);
+
+		Assert.assertEquals(
+			"Resultado errado",
 			0,
 			DemoDO.multiplicar(10, 0)
 		);
@@ -110,6 +116,12 @@ public class TestDemoDOAcciones {
 			"Resultado errado",
 			0,
 			DemoDO.dividir(0, 100)
+		);
+
+		Assert.assertEquals(
+			"Resultado errado",
+			10,
+			DemoDO.dividir(10, 1)
 		);
 
 		expectedException.expect(ArithmeticException.class);
