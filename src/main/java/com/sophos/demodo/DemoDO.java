@@ -32,18 +32,38 @@ public class DemoDO {
 		LOGGER.info("Ingrese el segundo argumento: ");
 		final int arg2 = leerEnteroDeConsola();
 
-		// Presenta los resultados
-		LOGGER.info("");
-		LOGGER.info("Resultados");
-		LOGGER.info("----------------------------------------------------------");
-		LOGGER.info("Suma de los argumentos:            (" + arg1 + " + " + arg2 + ") = " + sumar(arg1, arg2));
-		LOGGER.info("Resta de los argumentos:           (" + arg1 + " - " + arg2 + ") = " + restar(arg1, arg2));
-		LOGGER.info("Producto de los argumentos:        (" + arg1 + " x " + arg2 + ") = " + multiplicar(arg1, arg2));
-		LOGGER.info("Cociente entero de los argumentos: (" + arg1 + " / " + arg2 + ") = " + dividir(arg1, arg2));
-		LOGGER.info("");
+		// Realiza los cálculos
+		LOGGER.info(calcular(arg1, arg2));
 
 		// Sale
 		System.exit(0);
+	}
+
+	/**
+	 * Procedimiento que realiza los cálculos
+	 * @param arg1 primer argumento
+	 * @param arg2 segundo argumento
+	 */
+	public static String calcular(int arg1, int arg2) {
+		// Genera el texto con los resultados
+		final StringBuilder sb = new StringBuilder();
+		sb.append("\n");
+		sb.append("Resultados");
+		sb.append("\n");
+		sb.append("----------------------------------------------------------");
+		sb.append("\n");
+		sb.append("Suma de los argumentos:            (").append(arg1).append(" + ").append(arg2).append(") = ").append(sumar(arg1, arg2));
+		sb.append("\n");
+		sb.append("Resta de los argumentos:           (").append(arg1).append(" - ").append(arg2).append(") = ").append(restar(arg1, arg2));
+		sb.append("\n");
+		sb.append("Producto de los argumentos:        (").append(arg1).append(" x ").append(arg2).append(") = ").append(multiplicar(arg1, arg2));
+		sb.append("\n");
+		sb.append("Cociente entero de los argumentos: (").append(arg1).append(" / ").append(arg2).append(") = ").append(dividir(arg1, arg2));
+		sb.append("\n");
+		sb.append("\n");
+
+		// Entrega el resultado
+		return sb.toString();
 	}
 
 	/**

@@ -1,12 +1,14 @@
 package com.sophos.demodo.test;
 
 import com.sophos.demodo.DemoDO;
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.core.StringContains;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-public class TestDemoDOAcciones {
+public class TestDemoDO {
 
 	@Test
 	public void testSumar() {
@@ -130,6 +132,30 @@ public class TestDemoDOAcciones {
 			"Resultado errado",
 			0,
 			DemoDO.dividir(10, 0)
+		);
+	}
+
+	@Test
+	public void testCalcular() {
+		// Flujo normal
+		Assert.assertThat(
+			"Mensaje de salida no corresponde",
+			DemoDO.calcular(81, 9),
+			CoreMatchers.allOf(
+				StringContains.containsString("(81 + 9) = 90"),
+				StringContains.containsString("(81 - 9) = 72"),
+				StringContains.containsString("(81 x 9) = 729"),
+				StringContains.containsString("(81 / 9) = 9")
+			)
+		);
+
+		// Flujo con división por cero
+		expectedException.expect(ArithmeticException.class);
+		expectedException.expectMessage("División por cero");
+		Assert.assertEquals(
+			"Mensaje de salida no corresponde",
+			DemoDO.calcular(0, 0),
+			0
 		);
 	}
 
