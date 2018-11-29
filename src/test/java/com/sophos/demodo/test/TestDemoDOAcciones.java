@@ -6,7 +6,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-public class TestDemoDO {
+public class TestDemoDOAcciones {
 
 	@Test
 	public void testSumar() {
@@ -68,6 +68,12 @@ public class TestDemoDO {
 			"Resultado errado",
 			-50,
 			DemoDO.multiplicar(-10, 5)
+		);
+
+		Assert.assertEquals(
+			"Resultado errado",
+			-50,
+			DemoDO.multiplicar(10, -5)
 		);
 
 		Assert.assertEquals(

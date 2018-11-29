@@ -95,11 +95,16 @@ public class DemoDO {
 	 * @return el producto de los argumentos
 	 */
 	public static int multiplicar(int arg1, int arg2) {
+		final int signo = Integer.signum(arg1) * Integer.signum(arg2);
+
+		int multiplicando = Math.abs(arg1);
+		int multiplicador = Math.abs(arg2);
+
 		int producto = 0;
-		for(int i = 0 ; i < arg2 ; i++) {
-			producto += arg1;
+		for(int i = 0 ; i < multiplicador ; i++) {
+			producto += multiplicando;
 		}
-		return producto;
+		return producto * signo;
 	}
 
 	/**
