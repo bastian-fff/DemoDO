@@ -60,6 +60,8 @@ public class DemoDO {
 		sb.append("\n");
 		sb.append("Cociente entero de los argumentos: (").append(arg1).append(" / ").append(arg2).append(") = ").append(dividir(arg1, arg2));
 		sb.append("\n");
+		sb.append("Exponencial de los argumentos:     (").append(arg1).append(" ^ ").append(arg2).append(") = ").append(exponencial(arg1, arg2));
+		sb.append("\n");
 		sb.append("\n");
 
 		// Entrega el resultado
@@ -152,4 +154,7 @@ public class DemoDO {
 		return cociente * (signoDividendo * signoDivisor);
 	}
 
+	public static int exponencial(int arg1, int arg2) {
+		return (int)Math.pow(arg1, arg2);
+	}
 }
