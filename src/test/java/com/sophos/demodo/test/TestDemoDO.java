@@ -154,8 +154,8 @@ public class TestDemoDO {
 		expectedException.expectMessage("División por cero");
 		Assert.assertEquals(
 			"Mensaje de salida no corresponde",
-			DemoDO.calcular(0, 0),
-			0
+			0,
+			DemoDO.calcular(0, 0)
 		);
 	}
 

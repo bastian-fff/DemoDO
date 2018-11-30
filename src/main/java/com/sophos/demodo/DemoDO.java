@@ -13,6 +13,10 @@ public class DemoDO {
 	}
 	private static final Logger LOGGER = LogManager.getLogger();
 
+	private DemoDO() {
+
+	}
+
 	/**
 	 * Método principal
 	 * @param args argumentos de línea de comandos
@@ -96,8 +100,7 @@ public class DemoDO {
 	 * @return la suma de los argumentos
 	 */
 	public static int sumar(int arg1, int arg2) {
-		final int resultado = arg2 + arg1;
-		return resultado;
+		return arg2 + arg1;
 	}
 
 	/**
@@ -117,16 +120,7 @@ public class DemoDO {
 	 * @return el producto de los argumentos
 	 */
 	public static int multiplicar(int arg1, int arg2) {
-		final int signo = Integer.signum(arg1) * Integer.signum(arg2);
-
-		int multiplicando = Math.abs(arg1);
-		int multiplicador = Math.abs(arg2);
-
-		int producto = 0;
-		for(int i = 0 ; i < multiplicador ; i++) {
-			producto += multiplicando;
-		}
-		return producto * signo;
+		return arg1 * arg2;
 	}
 
 	/**
@@ -139,19 +133,7 @@ public class DemoDO {
 		if(divisor == 0) {
 			throw new ArithmeticException("División por cero");
 		}
-
-
-		int cociente = 0;
-
-		int signoDividendo = Integer.signum(dividendo);
-		int signoDivisor = Integer.signum(divisor);
-
-		int residuo = Math.abs(dividendo);
-		int div = Math.abs(divisor);
-		while ((residuo -= div) >= 0) {
-			cociente++;
-		}
-		return cociente * (signoDividendo * signoDivisor);
+		return dividendo / divisor;
 	}
 
 	public static int exponencial(int arg1, int arg2) {
