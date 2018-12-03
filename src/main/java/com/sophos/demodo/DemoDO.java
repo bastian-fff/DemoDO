@@ -136,6 +136,12 @@ public class DemoDO {
 		return dividendo / divisor;
 	}
 
+	/**
+	 * Procedimiento que hace la exponencial de dos enteros
+	 * @param arg1 base
+	 * @param arg2 exponente
+	 * @return la exponencial entera de los argumentos
+	 */
 	public static int exponencial(int arg1, int arg2) {
 		return (int)Math.pow(arg1, arg2);
 	}
