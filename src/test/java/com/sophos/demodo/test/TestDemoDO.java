@@ -135,6 +135,7 @@ public class TestDemoDO {
 		);
 	}
 
+	@Ignore
 	@Test
 	public void testCalcular() {
 		// Flujo normal
