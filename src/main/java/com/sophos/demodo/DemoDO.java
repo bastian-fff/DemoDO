@@ -64,8 +64,6 @@ public class DemoDO {
 		sb.append("\n");
 		sb.append("Cociente entero de los argumentos: (").append(arg1).append(" / ").append(arg2).append(") = ").append(dividir(arg1, arg2));
 		sb.append("\n");
-		sb.append("Exponencial de los argumentos:     (").append(arg1).append(" ^ ").append(arg2).append(") = ").append(exponencial(arg1, arg2));
-		sb.append("\n");
 		sb.append("\n");
 
 		// Entrega el resultado
@@ -100,7 +98,8 @@ public class DemoDO {
 	 * @return la suma de los argumentos
 	 */
 	public static int sumar(int arg1, int arg2) {
-		return arg2 + arg1;
+		final int resultado = arg2 + arg1;
+		return resultado;
 	}
 
 	/**
@@ -120,7 +119,16 @@ public class DemoDO {
 	 * @return el producto de los argumentos
 	 */
 	public static int multiplicar(int arg1, int arg2) {
-		return arg1 * arg2;
+		final int signo = Integer.signum(arg1) * Integer.signum(arg2);
+
+		int multiplicando = Math.abs(arg1);
+		int multiplicador = Math.abs(arg2);
+
+		int producto = 0;
+		for(int i = 0 ; i < multiplicador ; i++) {
+			producto += multiplicando;
+		}
+		return producto * signo;
 	}
 
 	/**
@@ -133,16 +141,19 @@ public class DemoDO {
 		if(divisor == 0) {
 			throw new ArithmeticException("División por cero");
 		}
-		return dividendo / divisor;
+
+
+		int cociente = 0;
+
+		int signoDividendo = Integer.signum(dividendo);
+		int signoDivisor = Integer.signum(divisor);
+
+		int residuo = Math.abs(dividendo);
+		int div = Math.abs(divisor);
+		while ((residuo -= div) >= 0) {
+			cociente++;
+		}
+		return cociente * (signoDividendo * signoDivisor);
 	}
 
-	/**
-	 * Procedimiento que hace la exponencial de dos enteros
-	 * @param arg1 base
-	 * @param arg2 exponente
-	 * @return la exponencial entera de los argumentos
-	 */
-	public static int exponencial(int arg1, int arg2) {
-		return (int)Math.pow(arg1, arg2);
-	}
 }

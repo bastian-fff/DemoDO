@@ -159,31 +159,4 @@ public class TestDemoDO {
 		);
 	}
 
-	@Test
-	public void testPow() {
-		Assert.assertEquals(
-			"Resultado incorrecto",
-			8,
-			DemoDO.exponencial(2, 3)
-		);
-
-		Assert.assertEquals(
-			"Resultado incorrecto",
-			1,
-			DemoDO.exponencial(2, 0)
-		);
-
-		Assert.assertEquals(
-			"Resultado incorrecto",
-			2,
-			DemoDO.exponencial(2, 1)
-		);
-
-		Assert.assertEquals(
-			"Resultado incorrecto",
-			0,
-			DemoDO.exponencial(2, -1)
-		);
-	}
-
 }
