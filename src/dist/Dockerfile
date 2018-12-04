@@ -1,4 +1,4 @@
-FROM java:8
+FROM openjdk:jre-slim
 
 COPY [".", "/usr/bin/DemoDO"]
 
