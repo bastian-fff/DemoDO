@@ -61,8 +61,6 @@ jacocoTestReport {
         csv.enabled = false
     }
 }
-
 jacoco {
-    toolVersion = "0.8.2"
     reportsDir = file("$buildDir/jacoco")
 }
