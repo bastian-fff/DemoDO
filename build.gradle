@@ -52,3 +52,11 @@ sonarqube {
         property "sonar.scm.disabled", "True"
     }
 }
+
+// JaCoCo
+jacocoTestReport {
+    reports {
+        xml.enabled = true
+        csv.enabled = false
+    }
+}
