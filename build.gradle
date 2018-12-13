@@ -47,9 +47,9 @@ jar {
 sonarqube {
     properties {
         property "sonar.host.url", "https://sonarcloud.io"
-        property "sonar.login", "01b52081b93c1a4b6679ad2d0f47d67ec6732df9"
-        property "sonar.organization", "lcpatinoc-bitbucket"
-        property "sonar.projectKey", "DemoDO-lcpatinoc-bitbucket"
+        property "sonar.login", "2e7818d4c50749bfcef2b46c50a479bbb0fc25a3"
+        property "sonar.organization", "sophos-rjrb-bitbucket"
+        property "sonar.projectKey", "com.sophos:DemoDO"
         property "sonar.scm.disabled", "True"
     }
 }
