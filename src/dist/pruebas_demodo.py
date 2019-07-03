@@ -2,7 +2,6 @@
 import fnmatch
 import locale
 import os
-import pandas as pd
 import subprocess
 import sys
 
@@ -79,14 +78,14 @@ def validar_resultados( row, texto_resultado ):
 def validar_excepciones( row, texto_resultado ):
     # Error esperado
     print("Error esperado")
-    print(row.error)
+    print(row["error"])
     print()
 
     # Compara
-    if row.error in texto_resultado:
-        print("\tControl de excepciones con " + row.arg1 + " y " + row.arg2 + " ---> OK")
+    if row["error"] in texto_resultado:
+        print("\tControl de excepciones con " + row["arg1"] + " y " + row["arg2"] + " ---> OK")
     else:
-        sys.exit(row.mensaje)
+        sys.exit(row["mensaje"])
 
 
 
@@ -106,16 +105,15 @@ charset = locale.getdefaultlocale()[1]
 
 # Datos de prueba para excepciones
 data = [
-    ["1", "0", "Validar división por cero", "java.lang.ArithmeticException"], 
-    ["n", "0", "Validar ingreso de valor no numérico", "Se esperaba un numero entero y se recibio 'n'"], 
-    ["0", "t", "Validar ingreso de valor no numérico", "Se esperaba un numero entero y se recibio 't'"]
+    {"arg1": "1", "arg2": "0", "mensaje": "Validar división por cero", "error": "java.lang.ArithmeticException"}, 
+    {"arg1": "n", "arg2": "0", "mensaje": "Validar ingreso de valor no numérico", "error": "Se esperaba un numero entero y se recibio 'n'"}, 
+    {"arg1": "0", "arg2": "t", "mensaje": "Validar ingreso de valor no numérico", "error": "Se esperaba un numero entero y se recibio 't'"}
 ]
-df = pd.DataFrame(data, columns=["arg1", "arg2", "mensaje", "error"])
 
 # Validación de excepciones
-for row in df.itertuples():
+for row in data:
     # Ejecuta el proceso
-    salida = ejecutar_proceso( row.arg1, row.arg2 )
+    salida = ejecutar_proceso( row["arg1"], row["arg2"] )
 
     # Resultado real
     print("Resultado real")
@@ -128,15 +126,14 @@ for row in df.itertuples():
 
 # Datos de prueba para operaciones
 data = [
-    ["81", "9", "90", "72", "729", "9"], 
-    ["45", "5", "50", "40", "225", "9"], 
-    ["6", "3", "9", "3", "18", "2"], 
-    ["0", "5", "5", "-5", "0", "0"]
+    {"arg1": "81", "arg2": "9", "suma": "90", "resta": "72", "producto": "729", "cociente": "9"}, 
+    {"arg1": "45", "arg2": "5", "suma": "50", "resta": "40", "producto": "225", "cociente": "9"}, 
+    {"arg1": "6", "arg2": "3", "suma": "9", "resta": "3", "producto": "18", "cociente": "2"}, 
+    {"arg1": "0", "arg2": "5", "suma": "5", "resta": "-5", "producto": "0", "cociente": "0"} 
 ]
-df = pd.DataFrame(data, columns=["arg1", "arg2", "suma", "resta", "producto", "cociente"])
 
 # Verificación de operaciones
-for index, row in df.iterrows():
+for row in data:
     # Ejecuta el proceso
     salida = ejecutar_proceso( row["arg1"], row["arg2"] )
 
