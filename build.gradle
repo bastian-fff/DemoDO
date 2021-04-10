@@ -51,6 +51,8 @@ sonarqube {
         property "sonar.organization", "sophos-rjrb-bitbucket"
         property "sonar.projectKey", "com.sophos:DemoDO"
         property "sonar.scm.disabled", "True"
+        property "sonar.coverage.jacoco.xmlReportPaths", "build/jacoco/test/jacocoTestReport.xml"
+        property "sonar.java.coveragePlugin", "jacoco"
     }
 }
 
