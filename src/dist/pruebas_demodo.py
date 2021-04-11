@@ -9,7 +9,7 @@ import sys
 # Procedimiento que ejecuta la aplicación con los argumentos indicados y retorna la salida
 def ejecutar_proceso( arg1, arg2 ):
     # Crea el proceso
-    p = subprocess.Popen( cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding=charset )
+    p = subprocess.Popen( cmd.split(), stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, encoding=charset )
 
     # Lee los datos iniciales
     print(p.stdout.readline(), end='')
@@ -106,8 +106,8 @@ charset = locale.getdefaultlocale()[1]
 # Datos de prueba para excepciones
 data = [
     {"arg1": "1", "arg2": "0", "mensaje": "Validar división por cero", "error": "java.lang.ArithmeticException"}, 
-    {"arg1": "n", "arg2": "0", "mensaje": "Validar ingreso de valor no numérico", "error": "Se esperaba un numero entero y se recibio 'n'"}, 
-    {"arg1": "0", "arg2": "t", "mensaje": "Validar ingreso de valor no numérico", "error": "Se esperaba un numero entero y se recibio 't'"}
+    {"arg1": "n", "arg2": "0", "mensaje": "Validar ingreso de valor no numérico", "error": "Se esperaba un numero entero y se recibio n"}, 
+    {"arg1": "0", "arg2": "t", "mensaje": "Validar ingreso de valor no numérico", "error": "Se esperaba un numero entero y se recibio t"}
 ]
 
 # Validación de excepciones
