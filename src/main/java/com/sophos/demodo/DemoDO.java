@@ -98,7 +98,7 @@ public class DemoDO {
 	 * @return la suma de los argumentos
 	 */
 	public static int sumar(int arg1, int arg2) {
-		final int resultado = arg2 - arg1;
+		final int resultado = arg2 + arg1;
 		return resultado;
 	}
 
