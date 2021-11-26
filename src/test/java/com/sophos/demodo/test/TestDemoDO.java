@@ -167,15 +167,12 @@ public class TestDemoDO {
 				StringContains.containsString("(81 / 9) = 9")
 			)
 		);
-
+		
 		// Flujo con división por cero
-		expectedException.expect(ArithmeticException.class);
-		expectedException.expectMessage("División por cero");
-		Assert.assertEquals(
-			"Mensaje de salida no corresponde",
-			"",
-			DemoDO.calcular(0, 0)
-		);
+		try {
+  			DemoDO.calcular(0, 0);
+  			Assert.fail("Resultado errado");
+		} catch (ArithmeticException e) {}
 	}
 
 }
