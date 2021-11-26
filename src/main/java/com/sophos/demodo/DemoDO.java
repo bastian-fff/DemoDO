@@ -4,6 +4,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Scanner;
+import java.lang.Math;
 
 public class DemoDO {
 
@@ -63,6 +64,8 @@ public class DemoDO {
 		sb.append("Producto de los argumentos:        (").append(arg1).append(" x ").append(arg2).append(") = ").append(multiplicar(arg1, arg2));
 		sb.append("\n");
 		sb.append("Cociente entero de los argumentos: (").append(arg1).append(" / ").append(arg2).append(") = ").append(dividir(arg1, arg2));
+		sb.append("\n");
+		sb.append("Exponencial de los argumentos: (").append(arg1).append(" ^ ").append(arg2).append(") = ").append(exponencial(arg1, arg2));
 		sb.append("\n");
 		sb.append("\n");
 
@@ -154,6 +157,10 @@ public class DemoDO {
 			cociente++;
 		}
 		return cociente * (signoDividendo * signoDivisor);
+	}
+	
+	public static int exponencial(int arg1, int arg2){
+		return (int)Math.pow(arg1, arg2);
 	}
 
 }
