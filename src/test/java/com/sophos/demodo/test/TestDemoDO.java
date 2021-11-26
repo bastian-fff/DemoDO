@@ -4,9 +4,7 @@ import com.sophos.demodo.DemoDO;
 import org.hamcrest.CoreMatchers;
 import org.hamcrest.core.StringContains;
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 public class TestDemoDO {
 
@@ -91,18 +89,12 @@ public class TestDemoDO {
 		);
 	}
 
-	@Rule
-	public ExpectedException expectedException = ExpectedException.none();
-
 	@Test
 	public void testDividir() {
-		expectedException.expect(ArithmeticException.class);
-		expectedException.expectMessage("División por cero");
-		Assert.assertEquals(
-			"Resultado errado",
-			0,
-			DemoDO.dividir(10, 0)
-		);
+		try {
+  			DemoDO.dividir(10, 0);
+  			Assert.fail("Resultado errado");
+		} catch (ArithmeticException e) {}
 		
 		Assert.assertEquals(
 			"Resultado errado",
