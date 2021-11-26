@@ -4,7 +4,6 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Scanner;
-import java.lang.Math;
 
 public class DemoDO {
 
@@ -38,7 +37,10 @@ public class DemoDO {
 		final int arg2 = leerEnteroDeConsola();
 
 		// Realiza los cálculos
-		LOGGER.info(calcular(arg1, arg2));
+		final String resultado = calcular(arg1, arg2);
+		
+		// Informa el resultado
+		LOGGER.info(resultado);
 
 		// Sale
 		System.exit(0);
@@ -88,7 +90,7 @@ public class DemoDO {
 		try {
 			return Integer.parseInt(tmp);
 		} catch (NumberFormatException nfe) {
-			LOGGER.fatal("Se esperaba un numero entero y se recibio '" + tmp + "'");
+			LOGGER.fatal("Se esperaba un numero entero y se recibio {}", tmp);
 			System.exit(0);
 			return 0;
 		}
