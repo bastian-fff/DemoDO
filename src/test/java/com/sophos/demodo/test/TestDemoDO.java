@@ -96,6 +96,14 @@ public class TestDemoDO {
 
 	@Test
 	public void testDividir() {
+		expectedException.expect(ArithmeticException.class);
+		expectedException.expectMessage("División por cero");
+		Assert.assertEquals(
+			"Resultado errado",
+			0,
+			DemoDO.dividir(10, 0)
+		);
+		
 		Assert.assertEquals(
 			"Resultado errado",
 			2,
@@ -124,14 +132,6 @@ public class TestDemoDO {
 			"Resultado errado",
 			10,
 			DemoDO.dividir(10, 1)
-		);
-
-		expectedException.expect(ArithmeticException.class);
-		expectedException.expectMessage("División por cero");
-		Assert.assertEquals(
-			"Resultado errado",
-			0,
-			DemoDO.dividir(10, 0)
 		);
 	}
 	
